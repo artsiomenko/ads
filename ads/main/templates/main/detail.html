@@ -1,0 +1,16 @@
+{% extends "layout/basic.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<h2 class="mb-2">{{ ad.rubric.name }}</h2>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col">
+            <h2>{{ ad.title }}</h2>
+            <p>{{ ad.content }}</p>
+            <p class="font-weight-bold">{{ ad.price }} $</p>
+            <p class="text-right font-italic">Added{{ ad.published }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
