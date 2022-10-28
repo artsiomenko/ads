@@ -5,9 +5,11 @@ class RegistrationUserAndNewAdd(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = WebDriver()
+        options = Options()
+        options.add_argument('--headless')
+        cls.selenium = WebDriver(chrome_options=options)
 
-    def test_user_and_add_forms(self):
+    def test_register(self):
         # test new user registration and login
         self.selenium.get(self.live_server_url + '')
         register = self.selenium.find_element(By.NAME, 'register')

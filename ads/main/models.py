@@ -7,11 +7,8 @@ class Ad(models.Model):
     content = models.TextField(null=True, blank=True)
     price = models.FloatField(null=True, blank=True)
     published = models.DateTimeField(auto_now_add=True, db_index=True)
-    rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT)
+    rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-
-    class Meta:
-        verbose_name_plural = 'Ads'
 
 
 class Rubric(models.Model):
@@ -20,6 +17,4 @@ class Rubric(models.Model):
     def __str__(self):
         return self.name
 
-    class Meta:
-        verbose_name_plural = 'Rubrics'
 

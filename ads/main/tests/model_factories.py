@@ -20,13 +20,12 @@ class UserFactory(DjangoModelFactory):
 
     username = 'Angelika'
     email = 'angelichka21.02@gmail.com'
-    password1 = 'SavoskoSasha21'
-    password2 = 'SavoskoSasha21'
+    password = 'SavoskoSasha21'
     first_name = 'Anzhalika'
     last_name = 'Artsiomenka'
 
 
-class BbFactory(DjangoModelFactory):
+class AdFactory(DjangoModelFactory):
     class Meta:
         model = Ad
 

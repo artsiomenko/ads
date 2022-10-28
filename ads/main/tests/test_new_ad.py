@@ -36,8 +36,9 @@ class RegistrationUserAndNewAdd(StaticLiveServerTestCase):
         login_button = self.selenium.find_element(By.TAG_NAME, 'button')
         login_button.click()
 
-        # test adding a new add
-        self.selenium.get(self.live_server_url + '/accounts/profile/add/')
+        #  test_adding_new_add(self):
+        new_ad = self.selenium.find_element(By.NAME, 'profile_new_ad')
+        new_ad.click()
         title = self.selenium.find_element(By.NAME, 'title')
         title.send_keys('House')
         content = self.selenium.find_element(By.NAME, 'content')
@@ -53,3 +54,5 @@ class RegistrationUserAndNewAdd(StaticLiveServerTestCase):
 
     def tearDown(self):
         self.selenium.quit()
+
+

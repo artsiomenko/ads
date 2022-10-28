@@ -42,7 +42,7 @@
         <nav class="col-md-auto nav flex-column border">
             <a class="nav-link root" href="{% url 'main:index' %}">Main page</a>
             {% for rubric in rubrics %}
-            <a class="nav-link root" href="/{{ rubric.name }}/{{ 'show' }}">{{ rubric.name }}</a>
+            <a class="nav-link root" href="/{{ rubric.name }}">{{ rubric.name }}</a>
             {% endfor %}
             <a class="nav-link root" href="{% url 'main:about' %}">About</a>
         </nav>
