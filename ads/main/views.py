@@ -96,8 +96,6 @@ def profile_ad_detail(request, rubric_name, ad_id):
 
 @login_required
 def profile_new_ad(request):
-    # rubrics = Rubric.objects.all()
-    # ads = Ad.objects.filter(author=request.user.pk)
     if request.method == 'POST':
         form = AdForm(request.POST)
         if form.is_valid():
