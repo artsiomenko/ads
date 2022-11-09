@@ -8,7 +8,7 @@
     {% for ad in ads %}
     <li class="media my-5 р-3 border">
         <div class="media-body">
-            <h3><a href="{{ ad.pk }}/{{ 'show' }}/">{{ ad.title }}</a></h3>
+            <h3><a href="{{ ad.pk }}/">{{ ad.title }}</a></h3>
             <div>{{ ad.content }}</div>
             <p class="text-right font-weight-bold">{{ ad.price }}</p>
             <p class="text-right font-italic">{{ ad.published }}</p>

@@ -6,7 +6,7 @@
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col">
-            <h2><a class="link" href="{{ ad.rubric }}/{{ ad.pk }}/{{ 'show' }}/">{{ ad.title }}</a></h2>
+            <h2><a class="link" href="/{{ ad.rubric }}/{{ ad.pk }}/">{{ ad.title }}</a></h2>
             <p>{{ ad.content }}</p>
             <p class="font-weight-bold">{{ ad.price }} $</p>
             <p class="text-right font-italic">Added{{ ad.published|date:"d.m.Y H:i:s" }}

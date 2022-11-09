@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -96,12 +95,42 @@ def profile_ad_detail(request, rubric_name, ad_id):
 
 @login_required
 def profile_new_ad(request):
+    rubrics = Rubric.objects.all()
     if request.method == 'POST':
         form = AdForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('main:profile')
+            ads = Ad.objects.filter(author=request.user.pk)
+            context = {'form': form, 'ads': ads, 'rubrics': rubrics}
+            return render(request, 'main/profile.html', context)
     else:
         form = AdForm(initial={'author': request.user.pk})
-    context = {'form': form}
+        ads = Ad.objects.filter(author=request.user.pk)
+        context = {'form': form, 'ads': ads, 'rubrics': rubrics}
     return render(request, 'main/profile_new_ad.html', context)
+
+
+@login_required
+def update(request, rubric_name, ad_id):
+    rubrics = Rubric.objects.all()
+    rubric = Rubric.objects.get(name=rubric_name)
+    ad = Ad.objects.get(pk=ad_id)
+    if request.method == 'POST':
+        form = AdForm(request.POST, instanсe=ad)
+        if form.is_valid():
+            form.save()
+            ads = Ad.objects.filter(author=request.user.pk)
+            context = {'form': form, 'ads': ads, 'rubrics': rubrics}
+            return render(request, 'main/profile.html', context)
+    else:
+        form = AdForm(instanсe=ad)
+        ads = Ad.objects.filter(author=request.user.pk)
+        context = {'form': form, 'ads': ads, 'rubrics': rubrics, 'rubric': rubric}
+    return render(request, 'main/update.html', context)
+
+
+
+
+
+
+

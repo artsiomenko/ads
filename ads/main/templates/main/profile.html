@@ -10,11 +10,12 @@
 <p><a class="nav-link" href="{% url 'main:profile_new_ad' %}" name='profile_new_ad'>New ad</a></p>
 {% for ad in ads %}
 <div class="col">
-    <h2><a class="link" href="/{{ ad.rubric }}/{{ ad.pk }}/{{ 'show' }}/">{{ ad.title }}</a></h2>
+    <h2><a class="link" href="{{ 'ads' }}/{{ ad.rubric }}/{{ ad.pk }}/">{{ ad.title }}</a></h2>
     <p>{{ ad.content }}</p>
     <p class="font-weight-bold">{{ ad.price }} $</p>
     <p>{{ ad.author.first_name }}</p>
     <p>{{ ad.published|date:"d.m.Y H:i:s" }}</p>
+    <p><a href="{{ 'ads' }}/{{ ad.rubric }}/{{ ad.pk }}/{{ 'update' }}/">Change</a></p>
 </div>
 {% endfor %}
 {% endblock %}

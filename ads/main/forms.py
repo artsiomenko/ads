@@ -48,7 +48,7 @@ class RegisterUserForm(forms.ModelForm):
 class AdForm(forms.ModelForm):
     class Meta:
         model = Ad
-        fields = '__all__'
+        fields = ['title', 'content', 'price', 'rubric']
         widgets = {'author': forms.HiddenInput}
 
 
