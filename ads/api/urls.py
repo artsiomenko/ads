@@ -11,4 +11,4 @@ router.register(r'accounts/profile/ads', AdsViewSet)
 
 urlpatterns = [
     path('api/', include((router.urls, 'ads'))),
-    ]
+]

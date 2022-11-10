@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.generics import RetrieveAPIView
+
 from main.models import Ad, Rubric, User
 from .serializers import UserSerializer, RubricSerializer, AdsSerializer
 
