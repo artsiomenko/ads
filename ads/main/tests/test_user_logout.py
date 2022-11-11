@@ -9,7 +9,7 @@ class RegistrationUserAndNewAdd(StaticLiveServerTestCase):
         options.add_argument('--headless')
         cls.selenium = WebDriver(chrome_options=options)
 
-    def test_register(self):
+    def test_register_and_login(self):
         # test new user registration and login
         self.selenium.get(self.live_server_url + '')
         register = self.selenium.find_element(By.NAME, 'register')
@@ -36,8 +36,11 @@ class RegistrationUserAndNewAdd(StaticLiveServerTestCase):
         password.send_keys('SavoskoSasha21')
         login_button = self.selenium.find_element(By.TAG_NAME, 'button')
         login_button.click()
-        time.sleep(2)
-        assert 'Здравствуйте, Анжелика Артеменко!' in self.selenium.page_source
+        profile = self.selenium.find_element(By.NAME, 'profile')
+        profile.click()
+        logout = self.selenium.find_element(By.NAME, 'logout')
+        logout.click()
+        assert 'Вы успешно вышли с сайта.' in self.selenium.page_source
 
     def tearDown(self):
         self.selenium.quit()
