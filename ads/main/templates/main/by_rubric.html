@@ -1,9 +1,9 @@
 {% extends "layout/basic.html" %}
 {% load static %}
 {% load bootstrap4 %}
-{% block title %}{{ current_rubric.name }}{% endblock %}
+{% block title %}{{ rubric.name }}{% endblock %}
 {% block content %}
-<h2 class="mb-2">{{ current_rubric.name }}</h2>
+<h2 class="mb-2">{{ rubric.name }}</h2>
 <ul class="list-unstyled">
     {% for ad in ads %}
     <li class="media my-5 р-3 border">

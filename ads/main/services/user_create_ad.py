@@ -1,9 +1,10 @@
 from main.forms import AdForm
-from main.models import Ad
+from main.models import Ad, Rubric
 from django.shortcuts import render
 
 
-def user_create_ad(request, rubrics):
+def user_create_ad(request):
+    rubrics = Rubric.objects.all()
     if request.method == 'POST':
         form = AdForm(request.POST)
         if form.is_valid():
