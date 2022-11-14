@@ -5,18 +5,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
-from .forms import RegisterUserForm, AdForm, SearchForm
+from .forms import RegisterUserForm
 from django.views.generic.base import TemplateView
 from django.urls import reverse_lazy
 from .models import Ad, Rubric
-from .services.search import search
+from .services.search import SearchService
 from .services.user_create_ad import user_create_ad
 
 
 def index(request):
-    ads, rubrics = Ad.objects.all(), Rubric.objects.all()
-    ads, form = search(request, ads)
-    context = {'ads': ads, 'rubrics': rubrics, 'form': form}
+    context = SearchService.__call__(request)
     return render(request, 'main/index.html', context)
 
 
