@@ -1,5 +1,7 @@
 from rest_framework import viewsets
-from rest_framework.generics import RetrieveAPIView
+from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 
 from main.models import Ad, Rubric, User
 from .serializers import UserSerializer, RubricSerializer, AdsSerializer
@@ -15,6 +17,11 @@ class RubricViewSet(viewsets.ModelViewSet):
     serializer_class = RubricSerializer
 
 
-class AdsViewSet(viewsets.ModelViewSet):
+class AdsViewSet(ModelViewSet):
     queryset = Ad.objects.all()
     serializer_class = AdsSerializer
+
+    def queryset_user(self):
+        queryset = self.queryset
+        queryset_user = queryset.filter(user=self.request.user)
+        return queryset_user

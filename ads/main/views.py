@@ -8,8 +8,6 @@ from django.views.generic.edit import CreateView
 from .forms import RegisterUserForm
 from django.views.generic.base import TemplateView
 from django.urls import reverse_lazy
-from .models import Ad, Rubric
-from .services.ads_and_rubric import ads_and_rubrics
 from .services.detail_of_ad import detail_of_ad
 from .services.detail_of_ad_in_user_profile import detail_of_ad_in_user_profile
 from .services.page_division_by_rubric import page_division_by_rubric
