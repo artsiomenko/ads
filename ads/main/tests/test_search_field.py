@@ -1,9 +1,8 @@
 from .model_factories import AdFactory
 from .options import *
-from .user_registration import new_user_registration
 
 
-class RegistrationUserAndNewAdd(StaticLiveServerTestCase):
+class SearchField(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
