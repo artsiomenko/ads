@@ -1,7 +1,4 @@
 from rest_framework import viewsets, generics, filters
-from django.shortcuts import render
-from rest_framework.views import APIView
-from rest_framework.viewsets import ModelViewSet
 from main.models import Rubric, User
 from .serializers import UserSerializer, RubricSerializer, AdsSerializer
 from .services.queryset_params_for_ads import queryset_ads
