@@ -1,7 +1,7 @@
 from rest_framework import viewsets, generics, filters
 from main.models import Rubric, User
 from .serializers import UserSerializer, RubricSerializer, AdsSerializer
-from .services.queryset_params_for_ads import queryset_ads
+from .services.queryset_params_for_ads import AdsQueryParamsServices
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,4 +20,4 @@ class AdsListViewSet(generics.ListAPIView):
     search_fields = ['title', 'content']
 
     def get_queryset(self):
-        return queryset_ads(self)
+        return AdsQueryParamsServices().queryset_ads(self.request.query_params)
