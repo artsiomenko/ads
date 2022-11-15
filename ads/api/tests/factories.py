@@ -20,6 +20,13 @@ class RubricFactory(DjangoModelFactory):
     name = 'Real estate'
 
 
+class RubricFactory2(DjangoModelFactory):
+    class Meta:
+        model = Rubric
+
+    name = 'Transport'
+
+
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
@@ -31,6 +38,17 @@ class UserFactory(DjangoModelFactory):
     last_name = 'Artsiomenka'
 
 
+class UserFactory2(DjangoModelFactory):
+    class Meta:
+        model = User
+
+    username = 'User2'
+    email = random_email()
+    password = 'User2'
+    first_name = 'User2'
+    last_name = 'User2'
+
+
 class AdFactory(DjangoModelFactory):
     class Meta:
         model = Ad
@@ -40,3 +58,16 @@ class AdFactory(DjangoModelFactory):
     price = 50000000
     author = factory.SubFactory(UserFactory)
     rubric = factory.SubFactory(RubricFactory)
+
+
+class AdFactory2(DjangoModelFactory):
+    class Meta:
+        model = Ad
+
+    title = 'Car_title'
+    content = 'Car_content'
+    price = 5
+    author = factory.SubFactory(UserFactory2)
+    rubric = factory.SubFactory(RubricFactory2)
+
+
