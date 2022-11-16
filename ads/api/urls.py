@@ -1,14 +1,13 @@
+from .views import AdsListFilterViewSet, AdViewSet
 from django.urls import path, include
 from rest_framework import routers
-from .views import AdsListViewSet, RubricViewSet, UserViewSet
 
 app_name = 'api'
 
 router = routers.SimpleRouter()
-router.register(r'rubric', RubricViewSet)
-router.register(r'accounts/profile/ads', UserViewSet)
+router.register(r'ads', AdViewSet)
 
 urlpatterns = [
-    path('api/ads/', AdsListViewSet.as_view(), name='ads-list'),
-    path('api/', include((router.urls, 'ads'))),
+    path('api/ads/', AdsListFilterViewSet.as_view(), name='ads-filters'),
+    path('', include((router.urls, 'ads'))),
 ]
