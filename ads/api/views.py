@@ -1,7 +1,7 @@
 from rest_framework import viewsets, generics, filters
 from main.models import Rubric, User
 from .serializers import UserSerializer, RubricSerializer, AdsSerializer
-from .services.queryset_params_for_ads import AdsQueryParamsServices
+from .services.AdsQueryParamsServices import AdsQueryParamsServices
 
 
 class UserViewSet(viewsets.ModelViewSet):
