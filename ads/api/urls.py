@@ -8,6 +8,6 @@ router = routers.SimpleRouter()
 router.register(r'ads', AdViewSet)
 
 urlpatterns = [
-    path('api/ads/', AdsListFilterViewSet.as_view(), name='ads-filters'),
-    path('', include((router.urls, 'ads'))),
+    path('api/', AdsListFilterViewSet.as_view(), name='ads-filters'),
+    path('api/', include((router.urls, 'ads'))),
 ]

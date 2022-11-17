@@ -12,7 +12,7 @@ class UserSearchQuery(StaticLiveServerTestCase):
 
     def test_for_browser(self):
         AdFactory()
-        self.selenium.get(self.live_server_url + '/api/ads/?search=House_title')
+        self.selenium.get(self.live_server_url + '/api/?search=House_title')
         assert "House_content" in self.selenium.page_source
 
     def tearDown(self):

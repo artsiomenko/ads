@@ -14,7 +14,7 @@ class TestNewAdPost(StaticLiveServerTestCase):
         cls.selenium.quit()
 
     def test_new_ad_post(self):
-        self.selenium.get(self.live_server_url + '/ads/')
+        self.selenium.get(self.live_server_url + '/api/ads/')
         title = self.selenium.find_element(By.NAME, 'title')
         title.send_keys('title')
         content = self.selenium.find_element(By.NAME, 'content')
