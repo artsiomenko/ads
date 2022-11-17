@@ -25,3 +25,4 @@ class AdsListFilterViewSet(generics.ListAPIView):
 
     def get_queryset(self):
         return AdsQueryParamsServices().queryset_ads(self.request.query_params)
+

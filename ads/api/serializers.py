@@ -17,14 +17,11 @@ class RubricSerializer(serializers.ModelSerializer):
 
 
 class AdsSerializer(serializers.ModelSerializer):
-    rubric = RubricSerializer()
-    author = UserSerializer()
+    rubric = RubricSerializer(read_only=True)
+    author = UserSerializer(read_only=True)
 
     class Meta:
         model = Ad
         fields = '__all__'
-
-
-
 
 
