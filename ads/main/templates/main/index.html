@@ -5,6 +5,7 @@
 <script type="module">
 
     window.component = {
+
         created() {
             this.fetchData()
         },
@@ -22,11 +23,18 @@
                         this.data = dataresp.data;
                     })
                     .catch(error => {
-                        console.log('alloha: ', error);
+                        console.log('Error: ', error);
                     })
             }
         },
-        template: `<div v-for="item in data">Alloha: {{item.name}}</div>`
+        template: `
+<div>
+<h1>Ads</h1>
+</div>
+<div v-for="item in data">
+
+<a class="nav-link root" href="/{{ item.name }}/">{{ item.name }}</a>
+</div>`
     }
 </script>
 {% endverbatim %}
