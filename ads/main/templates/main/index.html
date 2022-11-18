@@ -1,5 +1,4 @@
 {% extends "layout/basic.html" %}
-
 {% block script %}
 {% verbatim %}
 <script type="module">
@@ -13,12 +12,12 @@
         data() {
 
             return {
-                data: [{name: 'test1'}, {name: 'test2'}]
+                data: [{title: 'title', content: 'content', price: '1'}]
             }
         },
         methods: {
             fetchData() {
-                axios.get('/api/rubric/')
+                axios.get('/api/ads/')
                     .then((dataresp) => {
                         this.data = dataresp.data;
                     })
@@ -31,9 +30,11 @@
 <div>
 <h1>Ads</h1>
 </div>
-<div v-for="item in data">
+<div v-for="ad in data">
+<h2><a class="link" href="#">{{ ad.title }}</a></h2>
+<p>{{ ad.content }}</p>
+<p class="font-weight-bold">{{ ad.price }} $</p>
 
-<a class="nav-link root" href="/{{ item.name }}/">{{ item.name }}</a>
 </div>`
     }
 </script>
