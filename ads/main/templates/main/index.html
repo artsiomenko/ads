@@ -4,17 +4,30 @@
 {% verbatim %}
 <script type="module">
 
+    window.component = {
+        created() {
+            this.fetchData()
+        },
 
-window.component = {
+        data() {
 
-  data() {
-    return {
-     data:[{name:'test1'},{name:'test2'}]
+            return {
+                data: [{name: 'test1'}, {name: 'test2'}]
+            }
+        },
+        methods: {
+            fetchData() {
+                axios.get('/api/rubric/')
+                    .then((dataresp) => {
+                        this.data = dataresp.data;
+                    })
+                    .catch(error => {
+                        console.log('alloha: ', error);
+                    })
+            }
+        },
+        template: `<div v-for="item in data">Alloha: {{item.name}}</div>`
     }
-  },
-
-  template: `<div v-for="item in data">Alloha: {{item.name}}</div>`
-}
 </script>
 {% endverbatim %}
 {% endblock %}
