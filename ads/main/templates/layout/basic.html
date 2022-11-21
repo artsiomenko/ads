@@ -17,8 +17,8 @@
 
         const app = {
             components: {
-    component
-  },
+                component
+            },
             created() {
                 this.fetchData()
             },
@@ -26,12 +26,12 @@
             data() {
 
                 return {
-                    data: [{name: 'test1'}, {name: 'test2'}]
+                    data: ['test1', 'test2']
                 }
             },
             methods: {
                 fetchData() {
-                    axios.get('/api/rubric/')
+                    axios.get('/api/ads/rubric/')
                         .then((dataresp) => {
                             this.data = dataresp.data;
                         })
@@ -41,24 +41,20 @@
                 }
             },
             template: `
-<nav class="col-md-auto nav flex-column border">
-            <a class="nav-link root" href="#">Main page</a>
+                <nav class="col-md-auto nav flex-column border">
+                    <a class="nav-link root" href="#">Main page</a>
 
-            <teamplate v-for="rubric in data">
-            <a class="nav-link root" href="{{ rubric.name }}">{{ rubric.name }}</a>
+                    <teamplate v-for="rubric in data">
+                    <a class="nav-link root" href="#">{{ rubric }}</a>
 
-            </teamplate>
-            <a class="nav-link root" href="#">About</a>
-        </nav>
-        <section class="col border ру-2">
+                    </teamplate>
+                    <a class="nav-link root" href="#">About</a>
+                </nav>
+                <section class="col border ру-2">
 
-          <component></component>
-        </section>
-
-
-`
+                  <component></component>
+                </section>`
         }
-
         createApp(app).mount('#app')
     </script>
     {% endverbatim %}

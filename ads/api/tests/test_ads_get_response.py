@@ -11,6 +11,6 @@ class TestResponseAdsPage(StaticLiveServerTestCase):
 
 class ViewPageAds(StaticLiveServerTestCase):
     def test_response_code(self):
-        ad = AdFactory()
+        AdFactory()
         page_text = str((requests.get(self.live_server_url + '/api/')).text)
         self.assertTrue('House' in page_text)

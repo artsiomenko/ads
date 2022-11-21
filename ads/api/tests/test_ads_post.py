@@ -24,3 +24,4 @@ class TestNewAdPost(StaticLiveServerTestCase):
         add_button = self.selenium.find_element(By.XPATH, '//*[@id="post-object-form"]/form/fieldset/div[4]/button')
         add_button.click()
         assert 'Title' in self.selenium.page_source
+
