@@ -17,7 +17,7 @@ class UserSearchQuery(StaticLiveServerTestCase):
     def test_query_params(self):
         AdFactory(), AdFactory2()
         # test_by_keyword
-        self.selenium.get(self.live_server_url + '/api/?keyword=House')
+        self.selenium.get(self.live_server_url + '/api/ads/?keyword=House')
         assert 'Car' not in self.selenium.page_source and 'House' in self.selenium.page_source
 
 

@@ -27,15 +27,14 @@
             }
         },
         template: `
-<div>
-<h1>Ads</h1>
-</div>
-<div v-for="ad in data">
-<h2><a class="link" href="#">{{ ad.title }}</a></h2>
-<p>{{ ad.content }}</p>
-<p class="font-weight-bold">{{ ad.price }} $</p>
-
-</div>`
+            <div>
+                <h1>Ads</h1>
+            </div>
+            <div v-for="ad in data">
+                <h2><a class="link" href="{% url 'main:detail' pk=ad.id %}">{{ ad.title }}</a></h2>
+                <p>{{ ad.content }}</p>
+                <p class="font-weight-bold">{{ ad.price }} $</p>
+            </div>`
     }
 </script>
 {% endverbatim %}

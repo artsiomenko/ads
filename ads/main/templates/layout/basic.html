@@ -36,7 +36,7 @@
                             this.data = dataresp.data;
                         })
                         .catch(error => {
-                            console.log('alloha: ', error);
+                            console.log('Error: ', error);
                         })
                 }
             },
@@ -55,43 +55,43 @@
                   <component></component>
                 </section>`
         }
-        createApp(app).mount('#app')
+    createApp(app).mount('#app')
     </script>
     {% endverbatim %}
 </head>
 <body class="container-fluid">
-<header class="mb-4 ">
-    <h1 class="display-1 text-center">Bulletin board</h1>
-</header>
-<div class="container-fluid mb-2 ">
-    <div class="row">
-        <ul class="col nav justify-content-end border">
-            <li class="nav-item"><a class="nav-link" href="#"
-                                    name="register">Registration</a></li>
-            {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown"
-                   href="#" role="button" aria-haspopup="true" aria-expanded="false" name="profile">Profile</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">My ads</a>
-                    <a class="dropdown-item" href="#">
-                        Change personal info</a>
-                    <a class="dropdown-item" href="#">Change password</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-itern" href="#" name="logout">Logout</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Delete</a>
-                </div>
-            </li>
-            {% else %}
-            <li class="nav-item"><a class="nav-link" href="#" name="login">
-                Login</a></li>
-            {% endif %}
-        </ul>
+    <header class="mb-4 ">
+        <h1 class="display-1 text-center">Bulletin board</h1>
+    </header>
+    <div class="container-fluid mb-2 ">
+        <div class="row">
+            <ul class="col nav justify-content-end border">
+                <li class="nav-item"><a class="nav-link" href="#"
+                                        name="register">Registration</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button" aria-haspopup="true" aria-expanded="false" name="profile">Profile</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">My ads</a>
+                        <a class="dropdown-item" href="#">
+                            Change personal info</a>
+                        <a class="dropdown-item" href="#">Change password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-itern" href="#" name="logout">Logout</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="#" name="login">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="row" id="app"></div>
+        <footer class="mt-3">
+            <p class="text-right font-italic">&copy; users.</p>
+        </footer>
     </div>
-    <div class="row" id="app">
-    </div>
-    <footer class="mt-3">
-        <p class="text-right font-italic">&copy; users.</p>
-    </footer>
 </body>
+</html>

@@ -8,6 +8,5 @@ router = routers.SimpleRouter()
 router.register(r'ads', AdsViewSet, basename='ads')
 
 urlpatterns = [
-    path('', AdsListFilterViewSet.as_view(), name='ads-filters'),
     path('', include((router.urls, 'ads'))),
 ]
