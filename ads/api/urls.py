@@ -5,9 +5,7 @@ from rest_framework import routers
 app_name = 'api'
 
 router = routers.SimpleRouter()
-# router.register(r'ads', AdViewSet)
-# router.register(r'rubric', RubricViewSet)
-router.register(r'ads', AdsViewSetCRUD, basename='ads')
+router.register(r'ads', AdsViewSet, basename='ads')
 
 urlpatterns = [
     path('', AdsListFilterViewSet.as_view(), name='ads-filters'),

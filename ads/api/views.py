@@ -1,5 +1,5 @@
 from rest_framework import viewsets, generics, mixins
-from rest_framework.viewsets import GenericViewSet
+from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework.decorators import action
 from main.models import Rubric, User, Ad
 from .serializers import UserSerializer, AdsSerializer
@@ -9,8 +9,7 @@ from rest_framework.response import Response
 from .services.AdsViewSetServices import AdsViewSetServices
 
 
-class AdsViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
-                 mixins.ListModelMixin, GenericViewSet):
+class AdsViewSet(ModelViewSet):
     serializer_class = AdsSerializer
 
     def get_queryset(self):
