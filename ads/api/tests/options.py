@@ -5,3 +5,4 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 from .factories import *
+from django.test import LiveServerTestCase

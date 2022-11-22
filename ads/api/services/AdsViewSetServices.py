@@ -25,8 +25,3 @@ class AdsViewSetServices:
         if keyword is not None:
             queryset = queryset.filter(Q(title__icontains=keyword) | Q(content__icontains=keyword))
         return queryset
-    # @staticmethod
-    # def queryset_ads(pk):
-    #     if not pk:
-    #         return Ad.objects.all()
-    #     return Ad.objects.filter(pk=pk)
