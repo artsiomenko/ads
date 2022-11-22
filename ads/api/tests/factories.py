@@ -53,6 +53,7 @@ class AdFactory(DjangoModelFactory):
     class Meta:
         model = Ad
 
+    id = 10
     title = 'House_title'
     content = 'House_content'
     price = 50000000
