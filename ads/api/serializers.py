@@ -19,6 +19,7 @@ class RubricSerializer(serializers.ModelSerializer):
 class AdsSerializer(serializers.ModelSerializer):
     rubric = RubricSerializer(read_only=True)
     author = UserSerializer(read_only=True)
+    # author = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Ad

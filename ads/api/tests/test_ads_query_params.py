@@ -5,14 +5,15 @@ from .options import *
 class UserSearchQuery(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
-        super().setUpClass()
         options = Options()
         options.add_argument('--headless')
         cls.selenium = WebDriver(chrome_options=options)
+        super(UserSearchQuery, cls).setUpClass()
 
     @classmethod
-    def tearDown(cls):
+    def tearDownClass(cls):
         cls.selenium.quit()
+        super(UserSearchQuery, cls).tearDownClass()
 
     def test_query_params(self):
         AdFactory(), AdFactory2()

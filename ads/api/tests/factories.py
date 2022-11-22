@@ -65,6 +65,7 @@ class AdFactory2(DjangoModelFactory):
     class Meta:
         model = Ad
 
+    id = 20
     title = 'Car_title'
     content = 'Car_content'
     price = 5

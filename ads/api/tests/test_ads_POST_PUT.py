@@ -8,7 +8,7 @@ class TestNewAdPost(StaticLiveServerTestCase):
     def setUpClass(cls):
         options = Options()
         options.add_argument('--headless')
-        cls.selenium = WebDriver(chrome_options=options)
+        cls.selenium = WebDriver()
         super(TestNewAdPost, cls).setUpClass()
 
     @classmethod
@@ -39,3 +39,14 @@ class TestNewAdPost(StaticLiveServerTestCase):
         self.selenium.get(self.live_server_url + '/api/ads/10/')
         assert '10' in self.selenium.page_source
         assert 'New title' in self.selenium.page_source
+
+    # def test_ads_delete(self):
+    #     AdFactory2()
+    #     self.selenium.get(self.live_server_url + '/api/ads/20/')
+    #     delete = self.selenium.find_element(By.XPATH, '//*[@id="content"]/div[1]/button')
+    #     delete.click()
+    #     delete_sure = self.selenium.find_element(By.XPATH, '//*[@id="deleteModal"]/div/div/div[2]/form/button')
+    #     delete_sure.click()
+    #     self.selenium.get(self.live_server_url + '/api/ads/')
+    #     assert '20' not in self.selenium.page_source
+    #     assert 'Car_title' not in self.selenium.page_source
