@@ -8,7 +8,7 @@ class TestNewAdPost(StaticLiveServerTestCase):
     def setUpClass(cls):
         options = Options()
         options.add_argument('--headless')
-        cls.selenium = WebDriver()
+        cls.selenium = WebDriver(chrome_options=options)
         super(TestNewAdPost, cls).setUpClass()
 
     @classmethod
