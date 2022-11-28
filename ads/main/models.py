@@ -8,7 +8,7 @@ class Ad(models.Model):
     price = models.FloatField(null=True, blank=True)
     published = models.DateTimeField(auto_now_add=True, db_index=True)
     rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT, null=True, blank=True)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
 
 class Rubric(models.Model):

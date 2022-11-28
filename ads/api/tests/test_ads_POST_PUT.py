@@ -15,15 +15,6 @@ class TestNewAdPost(StaticLiveServerTestCase):
         super(TestNewAdPost, cls).tearDownClass()
 
     def test_new_ad_post(self):
-        # User.objects.create(username='admin', password='admin', email='admin@admin.com')
-        # self.selenium.get(self.live_server_url + '/admin/login/')
-        # username = self.selenium.find_element(By.NAME, 'username')
-        # username.send_keys('admin')
-        # password = self.selenium.find_element(By.NAME, 'password')
-        # password.send_keys('admin')
-        # log_in = self.selenium.find_element(By.XPATH, '//*[@id="login-form"]/div[3]/input')
-        # log_in.click()
-        # assert 'Ads' in self.selenium.page_source
         self.selenium.get(self.live_server_url + '/api/ads/')
         title = self.selenium.find_element(By.NAME, 'title')
         title.send_keys('title')
