@@ -22,11 +22,7 @@ class TestApiAdsPUT(StaticLiveServerTestCase):
 
 class TestApiAdsGET(StaticLiveServerTestCase):
     def test_api_ads_list_and_detail_GET(self):
-        password = 'password'
-        my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
-        client = Client()
-        client.login(username=my_admin.username, password=password)
-        # client = APIClient()
+        client = APIClient()
         AdFactory(), AdFactory2()
         request = client.get('/api/ads/')
         assert request.status_code == 200
